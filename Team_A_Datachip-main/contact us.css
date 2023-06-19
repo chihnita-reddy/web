@@ -1,3 +1,6 @@
+*{
+    background-image: url(media/con.jpg);
+}
 .contact-left{
     flex-basis: 35%;
 }
@@ -15,7 +18,7 @@
 
 .btn.btn2{
     display: inline-block;
-    background: #04080a;
+    background: #93cce8;
 }
 .contact-right form{
     width: 100%;
