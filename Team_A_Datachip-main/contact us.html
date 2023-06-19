@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>About Us - Company Name</title>
+    <link rel="stylesheet" type="text/css" href="contact ds.css">
+    <script src="index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://kit.fontawesome.com/8e6d06b86a.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</head>
+<!--Navigation bar-->
+<div id="nav-placeholder">
+</div>
+
+
+<script>
+    $(function(){
+        $("#nav-placeholder").load("nav.html");
+    });
+
+</script>
+<!--end of Navigation bar--> 
+    <!-- <header>
+        <h1>Contact Us</h1>
+    </header> -->
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Us</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i> techdatachip@gmail.com</p>
+                    <p><i class="fa-solid fa-square-phone"></i> 9494926530</p>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email Address " placeholder="Your Email" required>
+                        <input type="phone" name="Phone No" placeholder="Phone No" required>
+                        <input type="Course" name="Course" placeholder="Course" required>
+                        <textarea name="Queries"  rows="6" placeholder="Your Queries"></textarea>
+
+                        <button type ="Submit"class="btn btn2">Submit</button>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzg3tllLRp3zCjg2CCgYZ7x0qk-pLR-WUjWEaY0c3j02e6upzZGJNROiOvfB13lPwRM/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById('msg');
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+              if (response.ok) {
+                msg.innerHTML = 'Message sent successfully';
+                setTimeout(function() {
+                  msg.innerHTML = '';
+                }, 5000);
+                form.reset();
+              } else {
+                throw new Error('Error: ' + response.status);
+              }
+            })
+            .catch(error => {
+              console.error('Error!', error.message);
+              msg.innerHTML = 'Oops! Something went wrong. Please try again.';
+              setTimeout(function() {
+                msg.innerHTML = '';
+              }, 5000);
+            });
+        });
+      </script>
+      
+</body> 
+<div id="footer">
+</div>
+<!--Footer-->
+
+<script>
+    $(function(){
+        $("#footer").load("footer.html");
+    });
+
+</script>  
+</html>

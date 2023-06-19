@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    background-image: url(media/facultyy.jpeg);
+  }
+  header {
+    background-color: #0eece9;
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+    height: 70px;
+  }
+  p {
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3 {
+    color: #000000;
+  }
+  
+  #content {
+    
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  

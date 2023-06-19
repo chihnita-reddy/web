@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="lms.css">
+</head>
+<body>
+  <div class="navbar">
+    <a><img class="imgg logo" src="media\logo.jpg" alt=""></a>
+    <div class="nav-links">
+      <ul>
+        
+        <li><a  href="index.html">Home</a></li>
+        <li><a  href="about.html">About</a></li>
+        <li><a  href="#ourcourses">Courses</a></li>
+        <li><a  href="#contact us">Contact</a></li>
+        <li><a  href="faculty.html">Faculty</a></li>
+        <li><a  href="faq.html">Faq</a></li>
+        <li><button class="login" onclick="window.location.href='login.html';">Login</button></li>
+      </ul>
+    </div>
+  </div>
+  <header>
+    <h1>Student Dashboard</h1>
+  </header>
+  <main>
+    <div class="dashboard">
+      <h2>Welcome, John Doe!</h2>
+      <div class="widget" onclick="navigateTo('courses.html')">
+        <i class="icon">📚</i>
+        <h3>Courses</h3>
+        <p>View your enrolled courses and grades.</p>
+      </div>
+      <div class="widget" onclick="navigateTo('calendar.html')">
+        <i class="icon">📅</i>
+        <h3>Calendar
+          <a href="calendar.html"></a>
+        </h3>
+        <p>Stay organized with your class schedule and events.</p>
+      </div>
+      <div class="widget" onclick="navigateTo('assignments.html')">
+        <i class="icon">📋</i>
+        <h3>Assignments</h3>
+        <p>Check upcoming assignments and submission deadlines.</p>
+      </div>
+      <div class="widget" onclick="navigateTo('notes.html')">
+        <i class="icon">📝</i>
+        <h3>Notes</h3>
+        <p>Access and manage your study notes and materials.</p>
+      </div>
+    </div>
+
+    <script>
+      function navigateTo(url) {
+        window.location.href = url;
+      }
+    </script>
+  </main>
+  <footer>
+   
+    <div class="b b0">
+        <a><img class="img logo" src="media\logo.jpg" alt=""></a>
+        <h4>© copyright 2023</h4>
+            <h6>Hyderabad</h6>
+            <h6>Email - info@datachiptech.com</h6>
+    </div>
+    <div class="b">
+        <ul>
+            <br>
+            <li>
+                <h5><a class="b1" href="index.html">About Us</a></h5>
+            </li>
+            <br>
+            <li>
+                <h5><a class="b1" href="index.html">Contact</a></h5>
+            </li>
+            <br>
+            <li>
+                <h5><a class="b1" href="index.html">FAQ</a></h5>
+            </li>
+        </ul>
+    </div>
+    <div class="b social-media-icons">
+            <ul>
+                <li><a class="b2" href="#"><i class="fab fa-facebook"></i>Facebook</a></li>
+                <li><a class="b2" href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+                <li><a class="b2" href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+                <li><a class="b2" href="#"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+            </ul>    
+    </div>
+    <script src="https://kit.fontawesome.com/125c094e6c.js" crossorigin="anonymous"></script>
+</footer>
+</body>
+</html>
+
+

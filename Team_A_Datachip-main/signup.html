@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Responsive Registration Form</title>
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0"/>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a><img class="imgg logo" src="media\logo.jpg" alt=""></a>
+      <div class="nav-links">
+        <ul>
+          
+          <li><a  href="index.html">Home</a></li>
+          <li><a  href="about.html">About</a></li>
+          <li><a  href="#ourcourses">Courses</a></li>
+          <li><a  href="faculty.html">Faculty</a></li>
+          <li><a  href="faq.html">Faq</a></li>
+          <li><button class="login" onclick="window.location.href='login.html';">Login</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="form-title">Registration</h1>
+      <form action="#">
+        <div class="main-user-info">
+          <div class="user-input-box">
+            <label for="fullName">Full Name</label>
+            <input type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter Full Name"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Username</label>
+            <input type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter Username"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Email</label>
+            <input type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter Email"/>
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    placeholder="Enter Phone Number"/>
+          </div>
+          <div class="user-input-box">
+            <label for="password">Password</label>
+            <input type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"/>
+          </div>
+          <div class="user-input-box">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"/>
+          </div>
+        </div>
+        <div class="gender-details-box">
+          <span class="gender-title">Gender</span>
+          <div class="gender-category">
+            <input type="radio" name="gender" id="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="other">
+            <label for="other">Other</label>
+          </div>
+        </div>
+        <div class="form-submit-btn">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </body>
+  <footer>
+   
+    <div class="b b0">
+        <a><img class="img logo" src="media\logo.jpg" alt=""></a>
+        <h4>© copyright 2023</h4>
+            <h6>Hyderabad</h6>
+            <h6>Email - info@datachiptech.com</h6>
+    </div>
+    <div class="b">
+        <ul>
+            <br>
+            <li>
+                <h5><a class="b1" href="index.html">About Us</a></h5>
+            </li>
+            <br>
+            <li>
+                <h5><a class="b1" href="index.html">Contact</a></h5>
+            </li>
+            <br>
+            <li>
+                <h5><a class="b1" href="index.html">FAQ</a></h5>
+            </li>
+        </ul>
+    </div>
+    <div class="b social-media-icons">
+            <ul>
+                <li><a class="b2" href="#"><i class="fab fa-facebook"></i>Facebook</a></li>
+                <li><a class="b2" href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+                <li><a class="b2" href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+                <li><a class="b2" href="#"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+            </ul>    
+    </div>
+    <script src="https://kit.fontawesome.com/125c094e6c.js" crossorigin="anonymous"></script>
+</footer>
+</html>
