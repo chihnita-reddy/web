@@ -2,8 +2,8 @@
 <html>
     
 <head>
-    <title>About Us - Company Name</title>
-    <link rel="stylesheet" type="text/css" href="contact ds.css">
+    <title>Registration for Embedded System</title>
+    <link rel="stylesheet" type="text/css" href="contact es.css">
     <script src="index.js"></script>
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -16,7 +16,26 @@
 <div id="nav-placeholder">
 </div>
 
+<script>
+  const inputs = document.querySelectorAll(".input");
 
+function focusFunc() {
+  let parent = this.parentNode;
+  parent.classList.add("focus");
+}
+
+function blurFunc() {
+  let parent = this.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", focusFunc);
+  input.addEventListener("blur", blurFunc);
+});
+</script>
 <script>
     $(function(){
         $("#nav-placeholder").load("nav.html");
@@ -24,22 +43,20 @@
 
 </script>
 <!--end of Navigation bar--> 
-    <!-- <header>
-        <h1>Contact Us</h1>
-    </header> -->
     <div class="contact">
         <div class="container">
             <div class="row">
                 <div class="contact-left">
-                    <h1 class="sub-title">Contact Us</h1>
-                    <p><i class="fa-solid fa-paper-plane"></i> techdatachip@gmail.com</p>
+                    <h1 class="sub-title">Registration for Embedded System Course with DATACHIPTECH</h1>
+                    <p><i class="fa-solid fa-map-location-dot"></i> Hyderabad</p>
+                    <p><i class="fa-solid fa-envelope"></i>techdatachip@gmail.com</p>
                     <p><i class="fa-solid fa-square-phone"></i> 9494926530</p>
                 </div>
                 <div class="contact-right">
                     <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="email" name="Email Address " placeholder="Your Email" required>
-                        <input type="course" name="Phone No" placeholder="Phone No" required>
+                        <input type="phone" name="Phone No" placeholder="Phone No" required>
                         <textarea name="Queries"  rows="6" placeholder="Your Queries"></textarea>
                         <button type ="Submit"class="btn btn2">Submit</button>
                         <br>

@@ -1,46 +1,49 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Navbar</title>
   <style>
     body {
-overflow-x: hidden;
-}
+      overflow-x: hidden;
+    }
     
     .navbar {
       background-color: rgb(255, 255, 255);
       height: 80px;
       margin: 0;
+      margin-bottom: 5px;
       padding: 0;
       display: flex;
       align-items: center;
-      /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); */
     }
-    .imgg{
+
+    .imgg {
       max-height: 10vh;
       max-width: 40vw;
-      /* padding-left: 20px;
-      padding-bottom: 18px; */
     }
 
     .navbar .nav-links {
       margin-left: 0;
-      
+      margin-bottom: 10px;
     }
 
     .navbar .nav-links ul {
+      display: flex;
       list-style: none;
+      margin: 0;
+      padding: 0;
       max-width: fit-content;
-      /* padding-right: 60px; */
       margin-left: 0;
     }
 
     .navbar .nav-links li {
       display: inline;
       flex-grow: 1;
+      font-size: 17px;
+      margin: 2px;
     }
-     .login {
+
+    .login {
       display: inline-block;
       padding: 10px 30px;
       background-color: #0d7a88;
@@ -49,20 +52,19 @@ overflow-x: hidden;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      font-size: 16px; 
+      font-size: 16px;
       transition: background-position 0.3s linear;
       background-position: 0% 0%;
       background-size: 200% auto;
-      background-image: linear-gradient(to right, rgb(0, 0, 0) 50% ,#0d7a88  50%);
-}
-
-    .login:hover{
-      background-position: 100% 0%;
-      border-color: #0d7a88; 
-  
+      background-image: linear-gradient(to right, rgb(0, 0, 0) 50%, #0d7a88  50%);
     }
 
-    .navbar .nav-links a{
+    .login:hover {
+      background-position: 100% 0%;
+      border-color: #0d7a88; 
+    }
+
+    .navbar .nav-links a {
       color: #0d7a88;
       box-shadow: inset 0 0 0 0 #0d7a88;
       text-decoration: none;
@@ -70,23 +72,36 @@ overflow-x: hidden;
       display: inline-block;
       text-align: center;
       padding: 10px;
-      /* padding: 10px 30px; */
       transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
     }
 
-
     @media (max-width: 768px) {
-.navbar li a {
-  padding: 5px;
-}
-}
-    
-    .navbar .nav-links a:hover{
+      .navbar {
+        margin-bottom: 16px;
+      }
       
-      color: #fff;
-      box-shadow: inset 200px 0 0 0 #0d7a88;
+      .navbar li a {
+        padding: 2px;
+        font-size: 15px;
+      }
+      
+      .navbar .nav-links a {
+        height: 40px;
+        width: 55px;
+        margin-top: 10%;
+      }
+      .navbar .nav-links ul {
+      justify-content: space-around;
+      padding: 2px;
     }
-   
+    }
+
+    .navbar .nav-links a:hover {
+      height: 40px; 
+      width: auto;
+      color: #fff;
+      box-shadow: inset 150px 0 0 0 #0d7a88;
+    }
 
   </style>
 </head>
@@ -95,17 +110,14 @@ overflow-x: hidden;
     <a><img class="imgg logo" src="media\logo.jpg" alt=""></a>
     <div class="nav-links">
       <ul>
-        
-        <li><a  href="index.html">Home</a></li>
-        <li><a  href="about.html">About</a></li>
-        <li><a  href="#ourcourses">Courses</a></li>
-        <li><a  href="#contact us">Contact</a></li>
-        <li><a  href="faculty.html">Faculty</a></li>
-        <li><a  href="faq.html">FAQ</a></li>
-        <li><button class="login" onclick="window.location.href='login.html';">Login</button></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#ourcourses">Course</a></li>
+        <li><a href="index.html#contact us">Contact</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="faq.html">FAQ's</a></li>
       </ul>
     </div>
   </div>
 </body>
 </html>
-

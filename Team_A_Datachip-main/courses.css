@@ -2,7 +2,7 @@
 
 .course {
     display: inline-block;
-    text-align: center;
+    text-align: justify;
     width: 800px;
     padding: 20px 0;
     background-color: rgb(255, 255, 255);
@@ -26,7 +26,7 @@
 
   /* Course Title */
   .course h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
   }
@@ -62,4 +62,15 @@
   .course .btn:hover {
     background-position: 100% 0%;
     border-color: #0d7a88; 
+  }
+  @media (max-width: 768px){
+    .course p{
+      font-size: 10px;
+    }
+    .course h4{
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: justify;
+      font-size: 15px;
+    }
   }
