@@ -42,6 +42,12 @@
       font-size: 17px;
       margin: 2px;
     }
+    .navbar .side-menu{
+      display: none;
+    }
+    .navbar .menu-icon{
+      display: none;
+    }
 
     .login {
       display: inline-block;
@@ -76,23 +82,94 @@
     }
 
     @media (max-width: 768px) {
-      .navbar {
-        margin-bottom: 16px;
+      .imgg {
+        max-height: 300px;
+        max-width: 300px;
       }
+      .navbar {
+        margin-bottom: 46px;
+      }
+      .navbar .nav-links{
+        display: none;
+      }
+      .navbar .side-menu{
+      display: block;
+    }
+    .navbar .menu-icon{
+      display: block;
+    }
+      
       
       .navbar li a {
         padding: 2px;
-        font-size: 15px;
+        font-size: 18px;
+        margin-left: 20px;
       }
       
       .navbar .nav-links a {
         height: 40px;
-        width: 55px;
+        width: 78px;
         margin-top: 10%;
       }
       .navbar .nav-links ul {
-      justify-content: space-around;
-      padding: 2px;
+        justify-content: space-around;
+        padding: 2px;
+      }
+      
+      .menu-icon {
+        display: block;
+        font-size: 25px;
+        color: #0d7a88;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      
+      .side-menu {
+        position: fixed;
+        top: 80px;
+        right: -250px;
+        width: 250px;
+        height: 40vh;
+        background-color: #000000;
+        color: #ffffff;
+        z-index: 999;
+        transition: right 0.3s;
+        padding-top: 20px;
+      }
+      
+      .side-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .side-menu li {
+        margin: 10px;
+      }
+      
+      .side-menu a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      .side-menu .close-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 25px;
+        color: #ffffff;
+        cursor: pointer;
+      }
+      
+      .side-menu .close-btn:hover {
+        color: #0d7a88;
+      }
+      .navbar .side-menu a:hover {
+      height: 40px; 
+      width: auto;
+      color: #fff;
+      box-shadow: inset 150px 0 0 0 #0d7a88;
     }
     }
 
@@ -113,11 +190,34 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="index.html#ourcourses">Course</a></li>
+        <li><a href="project.html">Project</a></li>
+        <li><a href="index.html#contact us">Contact</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="faq.html">FAQ's</a></li>
+      </ul>
+    </div>
+    <div class="menu-icon" onclick="toggleSideMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="side-menu" id="sideMenu">
+      <i class="fas fa-times close-btn" onclick="toggleSideMenu()"></i>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#ourcourses">Course</a></li>
+        <li><a href="project.html">Project</a></li>
         <li><a href="index.html#contact us">Contact</a></li>
         <li><a href="faculty.html">Faculty</a></li>
         <li><a href="faq.html">FAQ's</a></li>
       </ul>
     </div>
   </div>
+
+  <script>
+    function toggleSideMenu() {
+      var sideMenu = document.getElementById("sideMenu");
+      sideMenu.style.right = (sideMenu.style.right === "-250px") ? "0" : "-250px";
+    }
+  </script>
 </body>
 </html>

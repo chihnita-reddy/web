@@ -28,11 +28,24 @@
     <header>
         <h1>About DATACHIPTECH</h1>
     </header>
+    <div class="scrolling-text-container">
+        <div class="scrolling-text">
+            <i> "Empowering Women Through Education: Our Commitment at DataChip" </i>
+        </div>
+      </div> 
+      <script>
+var scrollingText = document.querySelector('.scrolling-text');
+scrollingText.addEventListener('mouseover', function() {
+  scrollingText.style.animationPlayState = 'paused';
+});
 
+scrollingText.addEventListener('mouseout', function() {
+  scrollingText.style.animationPlayState = 'running';
+});
+     </script>
     <section id="content">
+        <!-- <h4><i>"Empowering Women Through Education: Our Commitment at DataChip"</i></h4> -->
         <h2>Welcome to datachiptech, where knowledge meets excellence!</h2>
-        
-        <h4>Empowering Women Through Education: Our Commitment at DataChip</h4>
         <p>A premier educational institution dedicated to empowering women and nurturing their potential. We firmly believe that education is the key to unlocking limitless opportunities and fostering gender equality.</p>
         <p>At DataChip, we are passionate about providing a supportive and inclusive learning environment that celebrates the achievements of women. We strive to create a space where women can thrive academically, personally, and professionally.</p>
         <p>We prioritize innovation and embrace cutting-edge technologies to enhance the learning experience. Our state-of-the-art facilities, modern classrooms, and well-equipped labs provide students with the resources they need to excel in their studies.</p>

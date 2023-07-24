@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="project.css">
+<title>Project</title>
+   
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+</head>
+<style>
+    :root{
+        font-family: "Raleway", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+     }
+
+     header  {
+        font-size: 24px;
+        font-weight: 600;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto; /* Center the text horizontally */
+        padding: 10px; /* Add some padding to the text */
+        background-color: rgba(1, 251, 255, 0.7); /* Add a semi-transparent background */
+        border-radius: 10px; /* Add some rounded corners to the background */
+     }
+    *{
+       margin: 0;
+       box-sizing: border-box;
+    }
+    .h1{
+      text-align: center;
+    }
+    
+    /* carousel */
+    .carousel{
+       position: relative;
+       
+    }
+    
+    .carousel_inner{
+       width: 100%;
+       height: 50%;
+       overflow: hidden;
+    }
+    
+    .carousel_inner::after{
+       content: "";
+       display: block;
+       clear: both;
+    }
+    
+    .carousel_item{
+       position: relative;
+       float: left;
+       display: none;
+       width: 100%;
+       height: 100%;
+       margin-right: -100%;
+    }
+    
+    /* slide effect */
+    .carousel_item__active,
+    .carousel_item__pos_prev,
+    .carousel_item__pos_next{
+       display: block;
+    }
+    
+    .carousel_item__pos_prev{
+       left: -100%;
+    }
+    
+    .carousel_item__pos_next{
+       left: 100%;
+    }
+    
+    .carousel_item__prev{
+       transform: translateX(100%);
+       transition: transform .5s ease-in-out;
+    }
+    
+    .carousel_item__next{
+       transform: translateX(-100%);
+       transition: transform .5s ease-in-out;
+    }
+    
+    /* fade effect */
+    .carousel__fade .carousel_item__pos_prev,
+    .carousel__fade .carousel_item__pos_next{
+       left: 0;
+       opacity: 0;
+    }
+    
+    .carousel__fade .carousel_item__prev,
+    .carousel__fade .carousel_item__next{
+       transform: none;
+       opacity: 1;
+       transition: opacity .5s ease-in-out;
+    }
+    
+    .carousel__fade .carousel_item__active.carousel_item__prev,
+    .carousel__fade .carousel_item__active.carousel_item__next{
+       opacity: 0;
+    }
+    
+    /* carousel */
+    .carousel_img {
+      display: block;
+      margin: 0;
+      width: 100vw; /* Make the image full screen */
+      height: 100vh; /* Make the image full screen */
+   }
+   
+   .carousel_caption {
+      position: absolute;
+      top: 10%;
+      left: 0%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 3rem 4rem;
+      text-align: left; /* Align text to the left */
+      color: #ffffff;
+      z-index: 1;
+   }
+   
+   .carousel_caption h2 {
+     color: rgb(255, 255, 255);
+     font-size: 80px;
+     margin-left: 0; /* Remove left margin */
+     margin-right: 0; /* Remove right margin */
+   }
+    
+    .carousel_title{
+       font-family: "Montserrat", sans-serif;
+       font-weight: 600;
+    }
+    
+    .carousel_description{
+       margin-top: .75rem;
+       line-height: 150%;
+    }
+    
+    .carousel_indicator{
+       position: absolute;
+       bottom: 1rem;
+       left: 50%;
+       transform: translateX(-50%);
+       display: flex;
+       flex-direction: row;
+       gap: .5rem;
+       z-index: 1;
+    }
+    
+    .carousel_dot {
+       background-color: rgba(255, 255, 255, 0.5);
+       border: none;
+       width: 10px;
+       height: 10px;
+       border-radius: 50%;
+       margin: 0 5px;
+       cursor: pointer;
+    }
+    
+    .carousel_dot__active {
+       background-color: white;
+    }
+    
+    .carousel_control {
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 100%;
+       height: auto;
+       padding: 0 20px;
+       z-index: 1;
+       pointer-events: none;
+    }
+    
+    .carousel_button {
+       background-color: rgba(0, 0, 0, 0.5);
+       border: none;
+       color: white;
+       font-size: 20px;
+       padding: 10px;
+       cursor: pointer;
+       pointer-events: all;
+    }
+    
+    .carousel_button:hover {
+       background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .carousel_button__prev {
+       margin-right: auto;
+    }
+    
+    .carousel_button__next {
+       margin-left: auto;
+    }
+    .parallex{
+        background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(media/da.webp) no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        width: 100%;
+    }
+    .parallex h1{
+        font-size: 60px;
+        font-weight: 700;
+    }
+    .parallelx h1, .parallelx p, .parallelx button{
+        padding: 70px 0;
+    } 
+    .parallex p{
+        font-size:25px;
+    }
+    .butn{
+      padding: 15px 25px;
+      background-color:  rgb(203, 239, 233);
+      color: rgb(5, 0, 0);
+      text-decoration: none;
+      border-style: double;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 25px; 
+      transition: background-position 0.3s linear;
+      background-position: 0% 0%;
+      background-size: 200% auto;
+      background-image: linear-gradient(to right, rgb(184, 243, 244) 50% ,#0d7a88  50%);
+    }
+    .butn:hover{
+      background-position: 100% 0%;
+      border-color: #0d7a88; 
+      color: aliceblue;
+    }
+    /* Additional styles for the "courses" section */
+.courses {
+   padding: 50px;
+   background-color: #f5f5f5;
+   text-align: center;
+ }
+ 
+ .course {
+   margin: 20px auto;
+   max-width: 800px;
+   background-color: #fff;
+   border-radius: 10px;
+   padding: 30px;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+   text-align: left;
+ }
+ 
+ .course img {
+   max-width: 100%;
+   border-radius: 10px;
+   margin-bottom: 20px;
+ }
+ 
+ .course h1 {
+   font-size: 36px;
+   font-weight: bold;
+   color: #333;
+   margin-bottom: 20px;
+ }
+ 
+ .course h4 {
+   font-size: 20px;
+   color: #000000;
+   line-height: 1.6;
+   margin-bottom: 20px;
+ }
+ 
+ .know-more-container {
+   text-align: center;
+ }
+ 
+ .know-more {
+   background-color: #0d7a88;
+   color: #000000;
+   border: none;
+   border-radius: 50px;
+   padding: 15px 25px;
+   font-size: 20px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+ }
+ 
+ .know-more:hover {
+   background-color: #0b6171;
+ }
+ /* Existing styles */
+/* Existing styles for course content */
+/* Existing styles for course content */
+.course-content {
+   display: flex;
+   align-items: flex-start;
+}
+
+.image-container {
+   width: 50%;
+   position: relative;
+}
+
+.course-content img {
+   max-width: 100%;
+   border-radius: 10px;
+}
+
+.course-description {
+   flex: 1; /* Allow the text to take up the remaining space */
+}
+
+/* Additional styles for the "moreData" div */
+.course .moreData {
+   display: none;
+   padding: 10px;
+}
+
+.course .moreData.show {
+   display: block;
+}
+
+/* Additional style for the enlarged course div */
+.course.enlarged .course-description {
+   display: block;
+}
+.course .moreData {
+   display: none;
+   padding: 20px;
+   position: absolute;
+   top: calc(190% + 10px); /* Adjust the position of the popup below the button */
+   left: 50%;
+   transform: translateX(-50%);
+   background-color: #fff;
+   color: #000000;
+   background-image: linear-gradient(rgb(228, 241, 240), rgb(135, 245, 245)); 
+   background-size: cover; /* Ensure the background image covers the entire popup */
+   border-radius: 10px;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+   z-index: 1;
+   text-align: left;
+   width: 80%; /* Adjust the width of the popup */
+}
+
+.course.enlarged .moreData.show {
+   display: block;
+   animation: slideInFromBelow 0.5s ease;
+}
+.close-button {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 20px;
+   color: #050505;
+   cursor: pointer;
+}
+
+.close-button:hover {
+   color: #333;
+}
+
+
+
+
+
+ /* Additional style for responsiveness on smaller screens */
+ @media screen and (max-width: 1000px) {
+   .course-content {
+     flex-direction: column; /* Stack the image and text vertically on smaller screens */
+     text-align: center;
+   }
+ 
+   .course-content img {
+     max-width: 100%;
+     margin-right: 0;
+     margin-bottom: 20px; /* Adjust the spacing between the image and text */
+   }
+   .course .moreData{
+      top: calc(150% + 10px);
+   }
+ }
+
+ 
+ 
+    
+    @media screen and (max-width: 1000px) {
+        .header p {
+            font-size: 18px;
+            padding: 10px;
+         }
+       .carousel_caption {
+          width: 100%;
+          height: auto;
+          padding: 1.5rem;
+          top: 60%;
+       }
+       .carousel_img{
+          display: block;
+          margin-top: 5px;
+          margin-left: 0px;
+          margin-right: 0px;
+          width: 100%;
+       }
+       .course-content {
+         display: flex;
+         flex-direction: column;
+         align-items: center; /* Center the content horizontally on smaller screens */
+         text-align: center;
+       }
+     
+       .image-container {
+         flex: 1;
+         text-align: center;
+       }
+     
+       .image-container img {
+         max-width: 100%;
+         height: auto;
+       }
+    }
+    @media screen and (max-width: 1000px) {
+      .carousel_img {
+         width: 100%; /* Adjust the image width for mobile view */
+         height: auto; /* Allow the image to scale proportionally */
+      }
+      .carousel_caption h2 {
+         font-size: 16px; /* Decrease the font size for mobile view */
+
+      }
+   }
+</style>
+<script>
+   // JavaScript for project details toggle
+   document.addEventListener("DOMContentLoaded", function() {
+     const knowMoreLinks = document.querySelectorAll(".know-more");
+     const projectCards = document.querySelectorAll(".project-card");
+
+     knowMoreLinks.forEach(function(link, index) {
+       link.addEventListener("click", function(event) {
+         event.preventDefault();
+         projectCards.forEach(function(card, cardIndex) {
+           if (cardIndex === index) {
+             card.classList.toggle("enlarged");
+           } else {
+             card.classList.remove("enlarged");
+           }
+         });
+       });
+     });
+   });
+ </script>
+<body>
+<!--Navigation bar-->
+<div id="nav-placeholder">
+</div>
+
+<script>
+    $(function(){
+        $("#nav-placeholder").load("nav.html");
+    });
+</script>
+<!--end of Navigation bar--> 
+   <div class="carousel">
+      <div class="carousel_inner">
+         <div class="carousel_item carousel_item__active">
+            <img src="media/wo.jpeg" class="carousel_img" style="filter: brightness(0.7);">
+            <div class="carousel_caption">
+                <h2>Women in software: shaping the digital world one line at a time.</h2>
+            </div>
+         </div>
+         
+         <div class="carousel_item">
+            <img src="media/webscraping.jpg"  class="carousel_img">
+            <div class="carousel_caption">
+                <!-- <h1>Web Scraping</h1>
+                <p class="py-2">Best teaching experience with one of our top mentors.</p> -->
+                <a href="#web-scraping">
+                  <button type="button" class="butn">View Details</button>
+                </a>
+            </div>
+         </div>
+
+      <div class="carousel_indicator">
+         <button class="carousel_dot carousel_dot__active"></button>
+         <button class="carousel_dot"></button>
+         <!-- <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button> -->
+      </div>
+
+      <div class="carousel_control">
+         <button class="carousel_button carousel_button__prev">
+            <i class="fas fa-chevron-left"></i>
+         </button>
+         <button class="carousel_button carousel_button__next">
+            <i class="fas fa-chevron-right"></i>
+         </button>
+      </div>
+   </div>
+</div>
+<header>
+    <p><b><i>Explore a selection of projects that we have collaborated on at DATACHIPTECH. </i></b></p>
+ </header>
+<!-- Keep the existing HTML code as it is -->
+
+<!-- Add the enlarged class to the course div when the "Know More" button is clicked -->
+<div class="courses">
+   <h1 id="web-scraping"><i><b> Web Scraping </i></b></h1>
+   <div class="course ourcourses">
+      <div class="course-content">
+        <div class="image-container">
+          <img src="media/iot-embedded-system.webp" alt="Course Image">
+        </div>
+        <div class="course-description">
+          <h4>We are currently engaged in an exciting web scraping project aimed at gathering valuable data from various online sources. Using advanced techniques and tools, we extract relevant information from target websites to unlock hidden insights and create meaningful applications.</h4>
+          <button class="know-more" onclick="toggleData(this)">Know More</button>
+            <div class="moreData" style="text-align:left;">
+               <span class="close-button" onclick="toggleData(this)">✖</span>
+               <!-- Content to display when the "Know More" button is clicked -->
+               <h1 id="web-scraping"><i><b> Web Scraping Project Details</i></b></h1>
+               <p>Our project involves scraping diverse data types including text, images, and structured data from reputable sources. We ensure strict adherence to privacy policies and legal regulations while respecting the terms of service of the websites we scrape. </p>
+               <p>Through interactive data visualizations and case studies, we demonstrate the practical applications and benefits of our web scraping project. Our solutions empower businesses and individuals by providing them with real-time, actionable information. </p>
+               <p>To foster collaboration and share knowledge, we provide comprehensive documentation and guides for developers interested in exploring web scraping techniques. We welcome inquiries, feedback, and potential collaboration opportunities, so please don't hesitate to reach out and join us on this exciting journey! </p>
+            </div>
+        </div>
+      </div> 
+   </div>
+</div>
+
+</div>
+
+   <script>
+       let onSlide = false;
+
+window.addEventListener("load", () => {
+  autoSlide();
+
+  const dots = document.querySelectorAll(".carousel_dot");
+  for (let i = 0; i < dots.length; i++) {
+     dots[i].addEventListener("click", () => slide(i));
+  }
+
+  const buttonPrev = document.querySelector(".carousel_button__prev");
+  const buttonNext = document.querySelector(".carousel_button__next");
+  buttonPrev.addEventListener("click", () => slide(getItemActiveIndex() - 1));
+  buttonNext.addEventListener("click", () => slide(getItemActiveIndex() + 1));
+})
+
+function autoSlide() {
+  setInterval(() => {
+     slide(getItemActiveIndex() + 1);
+  }, 4500); // slide speed = 3s
+}
+
+function slide(toIndex) {
+  if (onSlide)
+     return;
+  onSlide = true;
+
+  const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
+  const itemActive = document.querySelector(".carousel_item__active");
+  const itemActiveIndex = itemsArray.indexOf(itemActive);
+  let newItemActive = null;
+
+  if (toIndex > itemActiveIndex) {
+     // check if toIndex exceeds the number of carousel items
+     if (toIndex >= itemsArray.length) {
+        toIndex = 0;
+     }
+
+     newItemActive = itemsArray[toIndex];
+
+     // start transition
+     newItemActive.classList.add("carousel_item__pos_next");
+     setTimeout(() => {
+        newItemActive.classList.add("carousel_item__next");
+        itemActive.classList.add("carousel_item__next");
+     }, 20);
+  } else {
+     // check if toIndex exceeds the number of carousel items
+     if (toIndex < 0) {
+        toIndex = itemsArray.length - 1;
+     }
+
+     newItemActive = itemsArray[toIndex];
+
+     // start transition
+     newItemActive.classList.add("carousel_item__pos_prev");
+     setTimeout(() => {
+        newItemActive.classList.add("carousel_item__prev");
+        itemActive.classList.add("carousel_item__prev");
+     }, 20);
+  }
+
+  // remove all transition class and switch active class
+  newItemActive.addEventListener("transitionend", () => {
+     itemActive.className = "carousel_item";
+     newItemActive.className = "carousel_item carousel_item__active";
+     onSlide = false;
+  }, {
+     once: true
+  });
+
+  slideIndicator(toIndex);
+}
+
+function getItemActiveIndex() {
+  const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
+  const itemActive = document.querySelector(".carousel_item__active");
+  const itemActiveIndex = itemsArray.indexOf(itemActive);
+  return itemActiveIndex;
+}
+
+function slideIndicator(toIndex) {
+  const dots = document.querySelectorAll(".carousel_dot");
+  const dotActive = document.querySelector(".carousel_dot__active");
+  const newDotActive = dots[toIndex];
+
+  dotActive.classList.remove("carousel_dot__active");
+  newDotActive.classList.add("carousel_dot__active");
+}
+function toggleData(button) {
+   var courseDiv = button.closest('.course');
+   var moreDataDiv = courseDiv.querySelector('.moreData');
+   moreDataDiv.classList.toggle('show');
+
+   // Close other open popups
+   var allCourseDivs = document.querySelectorAll('.course');
+   allCourseDivs.forEach(function (div) {
+      if (div !== courseDiv) {
+         div.querySelector('.moreData').classList.remove('show');
+      }
+   });
+
+}
+
+function closePopup() {
+   var moreDataDiv = document.querySelector('.moreData.show');
+   if (moreDataDiv) {
+     moreDataDiv.classList.remove('show');
+     var knowMoreBtn = document.querySelector('.know-more');
+     knowMoreBtn.innerText = 'Know More'; // Reset the button text
+   }
+}
+
+</script> 
+</body>
+<div id="footer">
+</div>
+<!--Footer-->
+
+<script>
+    $(function(){
+        $("#footer").load("footer.html");
+    });
+
+</script> 
+</html>
